@@ -24,7 +24,7 @@ create table Etiqueta(
 alter table Etiqueta
 add constraint PK_EtiquetaID primary key(ID)
 
-create table Interes(
+create table Interes( ----no  se hhizo la machaccaaaaaaaaaaaaa
 	ID int identity,
 	Nombre varchar (20) not null,
 )
@@ -37,7 +37,7 @@ create table Lugar(
 	Latitud decimal (10,10) not null,
 	Longitud decimal (10,10) not null,
 	Categoria_ID int not null,
-	Descripción text
+	Descripcion text
 )
 alter table Lugar
 add constraint PK_LugarID primary key(ID)
@@ -61,7 +61,7 @@ create table Usuario(
 	[Apellido Paterno] varchar(20) not null,
 	UserName varchar(40) not null,
 	Email varchar (100) not null,
-	Contraseña varchar (35) not null,
+	Contrasena varchar (35) not null,
 	Ciudad_ID int
 )
 alter table Usuario
@@ -108,8 +108,8 @@ create table CheckIn(
 	Usuario_ID int not null,
 	Lugar_ID int not null,
 	[Fecha Hora] datetime not null,
-	Valoración tinyint,
-	Reseña text,
+	Valoracion tinyint,
+	Resena text,
 )
 alter table CheckIn
 add constraint FK_CheckIn_UsuarioID foreign key (Usuario_ID) references Usuario(ID)
