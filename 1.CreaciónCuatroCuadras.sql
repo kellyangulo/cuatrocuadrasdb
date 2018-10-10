@@ -3,6 +3,9 @@ go
 use CuatroCuadras
 go
 
+use cacas
+drop database CuatroCuadras
+
 create table Ciudad(
 	ID int identity,
 	Nombre varchar (20) not null,
@@ -34,8 +37,8 @@ add constraint PK_InteresID primary key(ID)
 create table Lugar(
 	ID int identity,
 	Nombre varchar (30) not null,
-	Latitud decimal (10,10) not null,
-	Longitud decimal (10,10) not null,
+	Latitud decimal (10,2) not null,
+	Longitud decimal (10,2) not null,
 	Categoria_ID int not null,
 	Descripcion text
 )
@@ -44,6 +47,8 @@ add constraint PK_LugarID primary key(ID)
 
 alter table Lugar
 add constraint FK_Lugar_CategoriaID foreign key (Categoria_ID) references Categoria(ID)
+select*from Lugar
+--no run
 
 create table LugarEtiqueta(
 	Lugar_ID int not null,
@@ -137,3 +142,12 @@ add constraint FK_UsuarioInteres_UsuarioID foreign key (Usuario_ID) references U
 
 alter table UsuarioInteres
 add constraint FK_UsuarioInteres_InteresID foreign key (Interes_ID) references Interes(ID)
+
+
+SELECT
+  *
+FROM
+  CuatroCuadras.INFORMATION_SCHEMA.TABLES;
+GO
+
+drop table Categoria
